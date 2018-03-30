@@ -1,0 +1,14 @@
+{
+	"name": "/testplugin",
+	"description": "Test Plugin",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Owen Jones",
+			"homepage": "whoisowenjones.com"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}

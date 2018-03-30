@@ -1,0 +1,36 @@
+{% extends '_layouts/cp' %}
+
+{% set crumbs = [
+    { label: 'Test Plugin', url: url('testplugin') },
+    { label: "Logs" | t, url: url('testplugin/logs') }
+] %}
+
+{% set selectedTab = 'logs' %}
+
+{% set content %}
+<a class="btn right" href="{{ actionUrl('testPlugin/clear') }}">{{ "Clear logs" | t }}</a>
+
+<table id="logs" class="data fullwidth collapsible">
+    <thead>
+        <tr>
+            <th scope="col">{{ "Date" | t }}</th>
+            <th scope="col">{{ "Message" | t }}</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for logEntry in logEntries %}
+            <tr>
+                <td>
+                    <div style="width: 150px">
+                        {{ logEntry.dateTime.localeDate() ~ ' ' ~ logEntry.dateTime.localeTime() }}
+                    </div>
+                </td>
+
+                <td>{{ logEntry.message }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endset %}
